@@ -13,8 +13,8 @@ public class TowerDragNDrop : MonoBehaviour
     void Start()
     {
         _resetPosition = this.transform.position;
-        Debug.Log($"Name: {this.name} , ResetPos: {_resetPosition}, ActualPos: {this.transform.position}");
         _camera = Camera.main;
+        
     }
     
     private Vector3 GetMousePos()
@@ -25,6 +25,7 @@ public class TowerDragNDrop : MonoBehaviour
     private void OnMouseDown()
     {
         _isDragFinished = false;
+        gameObject.GetComponent<TowerLogic>().isActive = false;
         _mousePosition = Input.mousePosition - GetMousePos();
     }
 
@@ -38,23 +39,36 @@ public class TowerDragNDrop : MonoBehaviour
 
     private void OnMouseUp()
     {
-        // Get the nearest field position
         Vector3 nearestFieldPosition = IsNearFieldPosition(this.transform.position);
-        Debug.Log($"NearestFieldTransform: {nearestFieldPosition}");
         
         TowerPositionManager.FieldState nearestFieldStatus = IsValidPosition(nearestFieldPosition);
-        Debug.Log($"Status after Change: {nearestFieldStatus}");
         
-        // Handle the behavior based on the nearest field status
+        bool isTooCloseToAnotherTower = IsTooCloseToOtherTower(nearestFieldPosition);
+        
         switch (nearestFieldStatus)
         {
             case TowerPositionManager.FieldState.Empty:
                 
                 Debug.Log("Empty");
                 
-                this.transform.position = new Vector3(nearestFieldPosition.x, nearestFieldPosition.y, -.000001f);
-                _previousPosition = this.transform.position;
-                _hasBeenMovedBefore = true;
+                if (isTooCloseToAnotherTower)
+                {
+                    if (!_hasBeenMovedBefore)
+                    {
+                        gameObject.transform.DOMove(_resetPosition, .5f).SetEase(Ease.InOutSine);
+                    }
+                    else
+                    {
+                        gameObject.transform.DOMove(_previousPosition, .5f).SetEase(Ease.InOutSine);
+                    }
+                }
+                else
+                {
+                    this.transform.DOMove(nearestFieldPosition, .5f).SetEase(Ease.InOutSine);
+                    gameObject.GetComponent<TowerLogic>().isActive = true;
+                    _previousPosition = this.transform.position;
+                    _hasBeenMovedBefore = true;
+                }
                 break;
             case TowerPositionManager.FieldState.Occupied:
                 
@@ -62,7 +76,6 @@ public class TowerDragNDrop : MonoBehaviour
                 
                 if (!_hasBeenMovedBefore)
                 {
-                    Debug.Log($"Name: {this.name} , ResetPos: {_resetPosition}, ActualPos: {this.transform.position}");
                     gameObject.transform.DOMove(_resetPosition, .5f).SetEase(Ease.InOutSine);
                 }
                 else
@@ -76,7 +89,6 @@ public class TowerDragNDrop : MonoBehaviour
                 
                 if (!_hasBeenMovedBefore)
                 {
-                    Debug.Log($"Name: {this.name} , ResetPos: {_resetPosition}, ActualPos: {this.transform.position}");
                     gameObject.transform.DOMove(_resetPosition, .5f).SetEase(Ease.InOutSine);
                 }
                 else
@@ -145,8 +157,24 @@ public class TowerDragNDrop : MonoBehaviour
                 }
             }
         }
-        Debug.Log(pos);
-        Debug.Log($"Status: {nearestFieldStatus}");
+        
         return nearestFieldStatus;
     }
+    private bool IsTooCloseToOtherTower(Vector3 pos)
+    {
+        float radius = .07f;
+
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(pos, radius);
+
+        foreach (Collider2D collider in colliders )
+        {
+            if (collider.gameObject.CompareTag("Player") && collider.gameObject != gameObject)
+            {
+                Debug.Log("Found tower with Player tag!");
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

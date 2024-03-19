@@ -1,23 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using UnityEngine.Serialization;
+using Unity.VisualScripting;
 
 public class TowerDragNDrop : MonoBehaviour
 {
     [SerializeField] private GameObject towerPositionManager;
     private Vector3 _mousePosition, _resetPosition, _previousPosition;
-    private bool hasBeenMovedBefore, isDragFinished;
-    private Transform _correctPosition;     // nur vorübergehend
+    private bool _hasBeenMovedBefore, _isDragFinished;
+    private Transform _correctPosition;
     private Camera _camera;
-    private TowerPositionManager.FieldState[,] _positionTracker;
 
     void Start()
     {
         _resetPosition = this.transform.position;
+        Debug.Log($"Name: {this.name} , ResetPos: {_resetPosition}, ActualPos: {this.transform.position}");
         _camera = Camera.main;
-        _positionTracker = towerPositionManager.GetComponent<TowerPositionManager>().PositionTracker;
     }
     
     private Vector3 GetMousePos()
@@ -27,45 +24,129 @@ public class TowerDragNDrop : MonoBehaviour
 
     private void OnMouseDown()
     {
-        isDragFinished = false;
+        _isDragFinished = false;
         _mousePosition = Input.mousePosition - GetMousePos();
     }
+
     private void OnMouseDrag()
     {
-        if (!isDragFinished)
+        if (!_isDragFinished)
         {
             transform.position = _camera.ScreenToWorldPoint(Input.mousePosition - _mousePosition);
         }
     }
+
     private void OnMouseUp()
     {
-        if (DistanceChecker(_correctPosition.transform.position, .5f)) // check all possible positions
-        // (DistanceChecker(AllCorrectForms.transform.position, .5f))
+        // Get the nearest field position
+        Vector3 nearestFieldPosition = IsNearFieldPosition(this.transform.position);
+        Debug.Log($"NearestFieldTransform: {nearestFieldPosition}");
+        
+        TowerPositionManager.FieldState nearestFieldStatus = IsValidPosition(nearestFieldPosition);
+        Debug.Log($"Status after Change: {nearestFieldStatus}");
+        
+        // Handle the behavior based on the nearest field status
+        switch (nearestFieldStatus)
         {
-            this.transform.position = _correctPosition.transform.position;
-            // this.transform.position = OneCorrectForm.transform.position;
-            
-            _previousPosition = this.transform.position;
-            hasBeenMovedBefore = true;
+            case TowerPositionManager.FieldState.Empty:
+                
+                Debug.Log("Empty");
+                
+                this.transform.position = new Vector3(nearestFieldPosition.x, nearestFieldPosition.y, -.000001f);
+                _previousPosition = this.transform.position;
+                _hasBeenMovedBefore = true;
+                break;
+            case TowerPositionManager.FieldState.Occupied:
+                
+                Debug.Log("Occupied");
+                
+                if (!_hasBeenMovedBefore)
+                {
+                    Debug.Log($"Name: {this.name} , ResetPos: {_resetPosition}, ActualPos: {this.transform.position}");
+                    gameObject.transform.DOMove(_resetPosition, .5f).SetEase(Ease.InOutSine);
+                }
+                else
+                {
+                    gameObject.transform.DOMove(_previousPosition, .5f).SetEase(Ease.InOutSine);
+                }
+                break;
+            case TowerPositionManager.FieldState.Blocked:
+                
+                Debug.Log("Blocked");
+                
+                if (!_hasBeenMovedBefore)
+                {
+                    Debug.Log($"Name: {this.name} , ResetPos: {_resetPosition}, ActualPos: {this.transform.position}");
+                    gameObject.transform.DOMove(_resetPosition, .5f).SetEase(Ease.InOutSine);
+                }
+                else
+                {
+                    gameObject.transform.DOMove(_previousPosition, .5f).SetEase(Ease.InOutSine);
+                }   
+                break;
         }
-        else
-        {
-            if (!hasBeenMovedBefore)
-            {
-                gameObject.transform.DOMove(_resetPosition, .5f).SetEase(Ease.InOutSine);
-            }
-            else
-            {
-                gameObject.transform.DOMove(_previousPosition, .5f).SetEase(Ease.InOutSine);
-            }
-        }
-        isDragFinished = true;
+        _isDragFinished = true;
     }
 
-    private bool DistanceChecker(Vector3 pos, float range)
+    private Vector3 IsNearFieldPosition(Vector3 pos)
     {
-        var position = this.transform.position;
-        return Mathf.Abs(position.x - pos.x) <= range &&
-               Mathf.Abs(position.y - pos.y) <= range;
+        float minDistance = Mathf.Infinity;
+        Vector3 nearestFieldPosition = Vector3.zero; // Initialize to (0, 0, 0) vector
+
+        // Get the TowerPositionManager component once to avoid repetitive calls
+        TowerPositionManager positionManager = towerPositionManager.GetComponent<TowerPositionManager>();
+
+        // Iterate through the transforms and statuses in the arrays
+        for (int i = 0; i < positionManager.PositionTransform.GetLength(0); i++)
+        {
+            for (int j = 0; j < positionManager.PositionTransform.GetLength(1); j++)
+            {
+                // Get the world position of the current transform
+                Vector3 worldPosition = positionManager.PositionTransform[i, j].position;
+
+                // Calculate the distance between the current transform and the input position
+                float distance = Vector3.Distance(pos, worldPosition);
+
+                // Update the nearest field position if the distance is smaller
+                if (distance < minDistance)
+                {
+                    minDistance = distance;
+                    nearestFieldPosition = worldPosition;
+                }
+            }
+        }
+        return nearestFieldPosition;
+    }
+
+    private TowerPositionManager.FieldState IsValidPosition(Vector3 pos)
+    {
+        float minDistance = Mathf.Infinity;
+        TowerPositionManager.FieldState nearestFieldStatus = TowerPositionManager.FieldState.Blocked;
+
+        // Get the TowerPositionManager component once to avoid repetitive calls
+        TowerPositionManager positionManager = towerPositionManager.GetComponent<TowerPositionManager>();
+
+        // Iterate through the statuses in the array
+        for (int i = 0; i < positionManager.PositionTransform.GetLength(0); i++)
+        {
+            for (int j = 0; j < positionManager.PositionTransform.GetLength(1); j++)
+            {
+                // Get the world position of the current transform
+                Vector3 worldPosition = positionManager.PositionTransform[i, j].position;
+
+                // Calculate the distance between the current transform and the input position
+                float distance = Vector3.Distance(pos, worldPosition);
+
+                // Update the nearest field status if the distance is smaller
+                if (distance < minDistance)
+                {
+                    minDistance = distance;
+                    nearestFieldStatus = positionManager.PositionStatus[i, j];
+                }
+            }
+        }
+        Debug.Log(pos);
+        Debug.Log($"Status: {nearestFieldStatus}");
+        return nearestFieldStatus;
     }
 }

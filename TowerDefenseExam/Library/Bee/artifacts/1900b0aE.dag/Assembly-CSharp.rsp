@@ -334,6 +334,7 @@
 -r:"Library/PackageCache/com.unity.visualscripting@1.9.0/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/PPv2URPConverters.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/PsdPlugin.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Scripts.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.2D.Animation.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.2D.Animation.Runtime.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.2D.Aseprite.Common.ref.dll"
@@ -397,13 +398,6 @@
 "Assets/DOTween/Modules/DOTweenModuleUI.cs"
 "Assets/DOTween/Modules/DOTweenModuleUnityVersion.cs"
 "Assets/DOTween/Modules/DOTweenModuleUtils.cs"
-"Assets/Scripts/EnemyMovement.cs"
-"Assets/Scripts/EnemySpawn.cs"
-"Assets/Scripts/ProgressManager.cs"
-"Assets/Scripts/ProjectileLogic.cs"
-"Assets/Scripts/TowerDragNDrop.cs"
-"Assets/Scripts/TowerLogic.cs"
-"Assets/Scripts/TowerPositionManager.cs"
 -langversion:9.0
 
 /deterministic

@@ -6,8 +6,8 @@ using UnityEngine;
 public class TowerLogic : MonoBehaviour
 {
     public bool isActive = false;
-    private float _fireCooldown = 3f;
-    [SerializeField] private GameObject _projectile;
+    public float _fireCooldown = 3f;
+    [SerializeField] public GameObject _projectile;
 
     private void Update()
     {
@@ -18,7 +18,7 @@ public class TowerLogic : MonoBehaviour
         }
     }
     
-    void Firing()
+    public void Firing()
     {
         isActive = false;
         Vector3 spawnPosition = this.transform.position;

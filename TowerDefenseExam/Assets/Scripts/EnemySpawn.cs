@@ -4,9 +4,9 @@ using UnityEngine;
 public class EnemySpawn : MonoBehaviour
 {
     [SerializeField] public Transform[] waypointTransforms;
-    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] public GameObject enemyPrefab;
     private bool _shouldSpawn = true;
-    [SerializeField] [Range(.5f, 5f)] private float fixedSpawnRate;
+    [SerializeField] [Range(.5f, 5f)] public float fixedSpawnRate;
     [SerializeField] private bool randomSpawnRate;
 
     private void Update()
@@ -24,7 +24,7 @@ public class EnemySpawn : MonoBehaviour
         }
     }
     
-    private void SpawnEnemy()
+    public void SpawnEnemy()
     {
         Instantiate(enemyPrefab, transform.position, Quaternion.identity);
         _shouldSpawn = true;

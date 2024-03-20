@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ProjectileLogic : MonoBehaviour
 {
-    [SerializeField] private float speed = 4f; 
+    [SerializeField] public float speed = 4f; 
     [SerializeField] private float rotationSpeed = 10f; 
-    [SerializeField] private float detectionRadius = 3f; 
+    [SerializeField] public float detectionRadius = 3f; 
     [SerializeField] private LayerMask enemyLayerMask; 
 
-    private GameObject nearestEnemy; 
+    public GameObject nearestEnemy; 
 
     void Start()
     {
@@ -33,7 +33,7 @@ public class ProjectileLogic : MonoBehaviour
         }
     }
 
-    void FindNearestEnemy()
+    public void FindNearestEnemy()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, detectionRadius, enemyLayerMask);
         float minDistance = Mathf.Infinity;
@@ -49,7 +49,7 @@ public class ProjectileLogic : MonoBehaviour
         }
     }
 
-    void MoveTowardsEnemy()
+    public void MoveTowardsEnemy()
     {
         Vector3 direction = (nearestEnemy.transform.position - transform.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -59,7 +59,7 @@ public class ProjectileLogic : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, nearestEnemy.transform.position, speed * Time.deltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject == nearestEnemy)
         {

@@ -69,6 +69,7 @@ ExportedObj/
 *.bhc
 *.log
 *.pid
+*.xml
 
 ###
 # OS generated

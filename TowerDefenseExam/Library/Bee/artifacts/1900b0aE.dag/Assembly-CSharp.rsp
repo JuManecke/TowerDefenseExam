@@ -397,7 +397,6 @@
 "Assets/DOTween/Modules/DOTweenModuleUI.cs"
 "Assets/DOTween/Modules/DOTweenModuleUnityVersion.cs"
 "Assets/DOTween/Modules/DOTweenModuleUtils.cs"
-"Assets/Scripts/EnemyLogic.cs"
 "Assets/Scripts/EnemyMovement.cs"
 "Assets/Scripts/EnemySpawn.cs"
 "Assets/Scripts/ProgressManager.cs"

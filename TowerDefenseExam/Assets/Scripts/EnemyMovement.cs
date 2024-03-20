@@ -1,18 +1,54 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
+using DG.Tweening;
+using UnityEngine.Serialization;
 
 public class EnemyMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Rigidbody2D _rigidbody;
+    [SerializeField] private float moveSpeed = 4f;
+    [SerializeField] private GameObject enemySpawn;
+    private Transform _targetpoint;
+    private int _waypointIndex = 0;
+
+    private void Awake()
     {
-        
+        if (enemySpawn == null)
+        {
+            enemySpawn = GameObject.Find("EnemySpawner");
+        }
     }
 
-    // Update is called once per frame
+    void Start()
+    {
+        _rigidbody = GetComponent<Rigidbody2D>();
+        _targetpoint = enemySpawn.GetComponent<EnemySpawn>().waypointTransforms[0];
+    }
+    
     void Update()
     {
+        if (Vector2.Distance(_targetpoint.position, transform.position) <= 0.1f)
+        {
+            if (_waypointIndex < enemySpawn.GetComponent<EnemySpawn>().waypointTransforms.Length - 1)
+            {
+                _waypointIndex++;
+                _targetpoint = enemySpawn.GetComponent<EnemySpawn>().waypointTransforms[_waypointIndex];
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
+        else
+        {
+            _rigidbody.MovePosition(Vector2.MoveTowards(transform.position, _targetpoint.position, moveSpeed * Time.deltaTime));
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        Vector2 direction = (_targetpoint.position - transform.position).normalized;
         
+        _rigidbody.velocity = direction * moveSpeed;
     }
 }

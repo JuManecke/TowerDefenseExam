@@ -1,18 +1,24 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class EnemySpawn : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] public Transform[] waypointTransforms;
+    [SerializeField] private GameObject _enemyPrefab;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SpawnEnemy();
+        }
+    }
+    
+    private void SpawnEnemy()
+    {
+        Instantiate(_enemyPrefab, this.transform.position, Quaternion.identity);
     }
 }

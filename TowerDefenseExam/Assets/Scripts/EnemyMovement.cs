@@ -1,15 +1,14 @@
 using System;
 using UnityEngine;
 using DG.Tweening;
-using UnityEngine.Serialization;
 
 public class EnemyMovement : MonoBehaviour
 {
     private Rigidbody2D _rigidbody;
     [SerializeField] private float moveSpeed = 4f;
     [SerializeField] private GameObject enemySpawn;
-    [SerializeField] private GameObject progressManager;
-    private Transform _targetpoint;
+    [SerializeField] private ProgressManager progressManager;
+    private Transform _targetPoint;
     private int _waypointIndex = 0;
 
     private void Awake()
@@ -20,41 +19,40 @@ public class EnemyMovement : MonoBehaviour
         }
         if (progressManager == null)
         {
-            progressManager = GameObject.Find("GameManager");
+            progressManager = GameObject.Find("GameManager").GetComponent<ProgressManager>();
         }
     }
 
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-        _targetpoint = enemySpawn.GetComponent<EnemySpawn>().waypointTransforms[0];
+        _targetPoint = enemySpawn.GetComponent<EnemySpawn>().waypointTransforms[0];
     }
     
     void Update()
     {
-        if (Vector2.Distance(_targetpoint.position, transform.position) <= 0.1f)
+        if (Vector2.Distance(_targetPoint.position, transform.position) <= 0.1f)
         {
             if (_waypointIndex < enemySpawn.GetComponent<EnemySpawn>().waypointTransforms.Length - 1)
             {
                 _waypointIndex++;
-                _targetpoint = enemySpawn.GetComponent<EnemySpawn>().waypointTransforms[_waypointIndex];
+                _targetPoint = enemySpawn.GetComponent<EnemySpawn>().waypointTransforms[_waypointIndex];
             }
             else
             {
-                progressManager.GetComponent<ProgressManager>()._hasLost = true;
+                progressManager._hasLost = true;
                 Destroy(gameObject);
             }
         }
         else
         {
-            _rigidbody.MovePosition(Vector2.MoveTowards(transform.position, _targetpoint.position, moveSpeed * Time.deltaTime));
+            _rigidbody.MovePosition(Vector2.MoveTowards(transform.position, _targetPoint.position, moveSpeed * Time.deltaTime));
         }
     }
 
     private void FixedUpdate()
     {
-        Vector2 direction = (_targetpoint.position - transform.position).normalized;
-        
+        Vector2 direction = (_targetPoint.position - transform.position).normalized;
         _rigidbody.velocity = direction * moveSpeed;
     }
 }

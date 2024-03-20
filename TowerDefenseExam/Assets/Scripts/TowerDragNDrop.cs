@@ -6,7 +6,7 @@ public class TowerDragNDrop : MonoBehaviour
 {
     [SerializeField] private GameObject towerPositionManager;
     private Vector3 _mousePosition, _resetPosition, _previousPosition;
-    private bool _hasBeenMovedBefore, _isDragFinished;
+    private bool _hasBeenMovedAtLeastOnce, _isDragFinished;
     private Transform _correctPosition;
     private Camera _camera;
 
@@ -51,7 +51,7 @@ public class TowerDragNDrop : MonoBehaviour
                 
                 if (isTooCloseToAnotherTower)
                 {
-                    if (!_hasBeenMovedBefore)
+                    if (!_hasBeenMovedAtLeastOnce)
                     {
                         gameObject.transform.DOMove(_resetPosition, .5f).SetEase(Ease.InOutSine);
                     }
@@ -65,12 +65,12 @@ public class TowerDragNDrop : MonoBehaviour
                     this.transform.DOMove(nearestFieldPosition, .5f).SetEase(Ease.InOutSine);
                     gameObject.GetComponent<TowerLogic>().isActive = true;
                     _previousPosition = this.transform.position;
-                    _hasBeenMovedBefore = true;
+                    _hasBeenMovedAtLeastOnce = true;
                 }
                 break;
             case TowerPositionManager.FieldState.Occupied:
                 
-                if (!_hasBeenMovedBefore)
+                if (!_hasBeenMovedAtLeastOnce)
                 {
                     gameObject.transform.DOMove(_resetPosition, .5f).SetEase(Ease.InOutSine);
                 }
@@ -81,7 +81,7 @@ public class TowerDragNDrop : MonoBehaviour
                 break;
             case TowerPositionManager.FieldState.Blocked:
 
-                if (!_hasBeenMovedBefore)
+                if (!_hasBeenMovedAtLeastOnce)
                 {
                     gameObject.transform.DOMove(_resetPosition, .5f).SetEase(Ease.InOutSine);
                 }

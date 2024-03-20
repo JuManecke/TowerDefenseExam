@@ -9,11 +9,9 @@ public class TowerPositionManager : MonoBehaviour
 {
     public FieldState[,] PositionStatus;
     public Transform[,] PositionTransform;
-    [SerializeField] private GameObject[]     positionOfFirstColumn,     positionOfSecondColumn,     
-                 positionOfThirdColumn,     positionOfFourthColumn,      positionOfFifthColumn, 
-                 positionOfSixthColumn,    positionOfSeventhColumn,     positionOfEighthColumn, 
-                 positionOfNinthColumn,      positionOfTenthColumn,   positionOfEleventhColumn, 
-               positionOfTwelfthColumn, positionOfThirteenthColumn, positionOfFourteenthColumn;
+    [SerializeField] private GameObject[]                   firstColumnPositions,       secondColumnPositions,  thirdColumnPositions, fourthColumnPositions, 
+        fifthColumnPositions,       sixthColumnPositions,   seventhColumnPositions,     eighthColumnPositions,  ninthColumnPositions, tenthColumnPositions,
+        eleventhColumnPositions,    twelfthColumnPositions, thirteenthColumnPositions,  fourteenthColumnPositions;
 
     public enum FieldState
     {
@@ -81,20 +79,20 @@ public class TowerPositionManager : MonoBehaviour
     {
         return column switch
         {
-            0  => positionOfFirstColumn,
-            1  => positionOfSecondColumn,
-            2  => positionOfThirdColumn,
-            3  => positionOfFourthColumn,
-            4  => positionOfFifthColumn,
-            5  => positionOfSixthColumn,
-            6  => positionOfSeventhColumn,
-            7  => positionOfEighthColumn,
-            8  => positionOfNinthColumn,
-            9  => positionOfTenthColumn,
-            10 => positionOfEleventhColumn,
-            11 => positionOfTwelfthColumn,
-            12 => positionOfThirteenthColumn,
-            13 => positionOfFourteenthColumn,
+            0  => firstColumnPositions,
+            1  => secondColumnPositions,
+            2  => thirdColumnPositions,
+            3  => fourthColumnPositions,
+            4  => fifthColumnPositions,
+            5  => sixthColumnPositions,
+            6  => seventhColumnPositions,
+            7  => eighthColumnPositions,
+            8  => ninthColumnPositions,
+            9  => tenthColumnPositions,
+            10 => eleventhColumnPositions,
+            11 => twelfthColumnPositions,
+            12 => thirteenthColumnPositions,
+            13 => fourteenthColumnPositions,
             _  => null
         };
     }

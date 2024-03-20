@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class EnemySpawn : MonoBehaviour
 {
@@ -21,15 +18,15 @@ public class EnemySpawn : MonoBehaviour
         }
         else if (_shouldSpawn && randomSpawnRate)
         {
-            float randomSpawnRate = UnityEngine.Random.Range(.5f, 5f);
-            Invoke("SpawnEnemy", randomSpawnRate);
+            float randomRate = UnityEngine.Random.Range(.5f, 5f);
+            Invoke("SpawnEnemy", randomRate);
             _shouldSpawn = false;
         }
     }
     
     private void SpawnEnemy()
     {
-        Instantiate(enemyPrefab, this.transform.position, Quaternion.identity);
+        Instantiate(enemyPrefab, transform.position, Quaternion.identity);
         _shouldSpawn = true;
     }
 }

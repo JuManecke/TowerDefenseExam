@@ -18,7 +18,6 @@ public class TowerLogic : MonoBehaviour
         }
     }
     
-    
     void Firing()
     {
         isActive = false;

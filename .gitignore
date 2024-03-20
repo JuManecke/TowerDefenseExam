@@ -60,6 +60,7 @@ ExportedObj/
 *.svd
 *.pdb
 *.mdb
+*.bhc
 *.opendb
 *.VC.db
 .DS_Store

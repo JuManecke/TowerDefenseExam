@@ -6,7 +6,7 @@ using UnityEngine;
 public class TowerLogic : MonoBehaviour
 {
     public bool isActive = false;
-    private float _fireCooldown = 1f;
+    private float _fireCooldown = 3f;
     [SerializeField] private GameObject _projectile;
 
     private void Update()

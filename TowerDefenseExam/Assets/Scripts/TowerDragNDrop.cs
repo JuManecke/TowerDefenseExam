@@ -14,7 +14,6 @@ public class TowerDragNDrop : MonoBehaviour
     {
         _resetPosition = this.transform.position;
         _camera = Camera.main;
-        
     }
     
     private Vector3 GetMousePos()
@@ -34,6 +33,7 @@ public class TowerDragNDrop : MonoBehaviour
         if (!_isDragFinished)
         {
             transform.position = _camera.ScreenToWorldPoint(Input.mousePosition - _mousePosition);
+            gameObject.GetComponent<TowerLogic>().isActive = false;
         }
     }
 
@@ -48,8 +48,6 @@ public class TowerDragNDrop : MonoBehaviour
         switch (nearestFieldStatus)
         {
             case TowerPositionManager.FieldState.Empty:
-                
-                Debug.Log("Empty");
                 
                 if (isTooCloseToAnotherTower)
                 {
@@ -72,8 +70,6 @@ public class TowerDragNDrop : MonoBehaviour
                 break;
             case TowerPositionManager.FieldState.Occupied:
                 
-                Debug.Log("Occupied");
-                
                 if (!_hasBeenMovedBefore)
                 {
                     gameObject.transform.DOMove(_resetPosition, .5f).SetEase(Ease.InOutSine);
@@ -84,9 +80,7 @@ public class TowerDragNDrop : MonoBehaviour
                 }
                 break;
             case TowerPositionManager.FieldState.Blocked:
-                
-                Debug.Log("Blocked");
-                
+
                 if (!_hasBeenMovedBefore)
                 {
                     gameObject.transform.DOMove(_resetPosition, .5f).SetEase(Ease.InOutSine);
@@ -103,23 +97,18 @@ public class TowerDragNDrop : MonoBehaviour
     private Vector3 IsNearFieldPosition(Vector3 pos)
     {
         float minDistance = Mathf.Infinity;
-        Vector3 nearestFieldPosition = Vector3.zero; // Initialize to (0, 0, 0) vector
-
-        // Get the TowerPositionManager component once to avoid repetitive calls
+        Vector3 nearestFieldPosition = Vector3.zero;
+        
         TowerPositionManager positionManager = towerPositionManager.GetComponent<TowerPositionManager>();
-
-        // Iterate through the transforms and statuses in the arrays
+        
         for (int i = 0; i < positionManager.PositionTransform.GetLength(0); i++)
         {
             for (int j = 0; j < positionManager.PositionTransform.GetLength(1); j++)
             {
-                // Get the world position of the current transform
                 Vector3 worldPosition = positionManager.PositionTransform[i, j].position;
-
-                // Calculate the distance between the current transform and the input position
+                
                 float distance = Vector3.Distance(pos, worldPosition);
-
-                // Update the nearest field position if the distance is smaller
+                
                 if (distance < minDistance)
                 {
                     minDistance = distance;
@@ -134,22 +123,17 @@ public class TowerDragNDrop : MonoBehaviour
     {
         float minDistance = Mathf.Infinity;
         TowerPositionManager.FieldState nearestFieldStatus = TowerPositionManager.FieldState.Blocked;
-
-        // Get the TowerPositionManager component once to avoid repetitive calls
+        
         TowerPositionManager positionManager = towerPositionManager.GetComponent<TowerPositionManager>();
-
-        // Iterate through the statuses in the array
+        
         for (int i = 0; i < positionManager.PositionTransform.GetLength(0); i++)
         {
             for (int j = 0; j < positionManager.PositionTransform.GetLength(1); j++)
             {
-                // Get the world position of the current transform
                 Vector3 worldPosition = positionManager.PositionTransform[i, j].position;
-
-                // Calculate the distance between the current transform and the input position
+                
                 float distance = Vector3.Distance(pos, worldPosition);
-
-                // Update the nearest field status if the distance is smaller
+                
                 if (distance < minDistance)
                 {
                     minDistance = distance;
@@ -170,7 +154,6 @@ public class TowerDragNDrop : MonoBehaviour
         {
             if (collider.gameObject.CompareTag("Player") && collider.gameObject != gameObject)
             {
-                Debug.Log("Found tower with Player tag!");
                 return true;
             }
         }

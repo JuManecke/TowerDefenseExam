@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour
     private Rigidbody2D _rigidbody;
     [SerializeField] private float moveSpeed = 4f;
     [SerializeField] private GameObject enemySpawn;
+    [SerializeField] private GameObject progressManager;
     private Transform _targetpoint;
     private int _waypointIndex = 0;
 
@@ -16,6 +17,10 @@ public class EnemyMovement : MonoBehaviour
         if (enemySpawn == null)
         {
             enemySpawn = GameObject.Find("EnemySpawner");
+        }
+        if (progressManager == null)
+        {
+            progressManager = GameObject.Find("GameManager");
         }
     }
 
@@ -36,6 +41,7 @@ public class EnemyMovement : MonoBehaviour
             }
             else
             {
+                progressManager.GetComponent<ProgressManager>()._hasLost = true;
                 Destroy(gameObject);
             }
         }

@@ -226,6 +226,7 @@ MonoBehaviour:
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  nearestEnemy: {fileID: 0}
 --- !u!212 &8743595481261431854
 SpriteRenderer:
   m_ObjectHideFlags: 0

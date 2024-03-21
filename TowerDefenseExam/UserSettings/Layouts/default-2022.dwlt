@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 273
+  controlID: 415
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 113
+  controlID: 383
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 88
+  controlID: 384
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 42
+  controlID: 319
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -292,8 +292,8 @@ MonoBehaviour:
     y: 0
     width: 1261
     height: 504
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -323,7 +323,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 89
+  controlID: 385
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -341,7 +341,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 900
+    width: 901
     height: 443
   m_MinSize: {x: 231, y: 271}
   m_MaxSize: {x: 10001, y: 10021}
@@ -366,12 +366,12 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 900
+    x: 901
     y: 0
-    width: 694
+    width: 693
     height: 443
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -412,7 +412,7 @@ MonoBehaviour:
     m_SaveData: []
     m_OverlaysVisible: 1
   m_Spl:
-    ID: 333
+    ID: 448
     splitterInitialOffset: 439
     currentActiveSplitter: -1
     realSizes:
@@ -444,7 +444,7 @@ MonoBehaviour:
       name: TowerDefenseExam
       fullName: TowerDefenseExam
       resultStatus: 1
-      duration: 3.3363173
+      duration: 3.2703514
       messages: 
       output: 
       stacktrace: 
@@ -455,12 +455,12 @@ MonoBehaviour:
       categories: []
       parentId: 
       parentUniqueId: 
-    - id: 1004
+    - id: 1003
       uniqueId: '[EditMode][C:/Git-Repos/TowerDefenseExam/TowerDefenseExam/Library/ScriptAssemblies/EditMode.dll][suite]'
       name: EditMode.dll
       fullName: C:/Git-Repos/TowerDefenseExam/TowerDefenseExam/Library/ScriptAssemblies/EditMode.dll
       resultStatus: 1
-      duration: 3.2886198
+      duration: 3.2383685
       messages: 
       output: 
       stacktrace: 
@@ -476,7 +476,7 @@ MonoBehaviour:
       name: TowerLogicTest+TowerFiringTest
       fullName: TowerLogicTest+TowerFiringTest
       resultStatus: 1
-      duration: 3.2836018
+      duration: 3.234259
       messages: 
       output: 
       stacktrace: 
@@ -492,7 +492,7 @@ MonoBehaviour:
       name: TowerFiringTestWithEnumeratorPasses
       fullName: TowerLogicTest+TowerFiringTest.TowerFiringTestWithEnumeratorPasses
       resultStatus: 1
-      duration: 3.242386
+      duration: 3.2219796
       messages: 
       output: 
       stacktrace: 
@@ -504,12 +504,12 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1001
       parentUniqueId: EditMode.dll/[EditMode][TowerLogicTest+TowerFiringTest][suite]
-    - id: 1014
+    - id: 1006
       uniqueId: '[EnemyDestruction][C:/Git-Repos/TowerDefenseExam/TowerDefenseExam/Library/ScriptAssemblies/EnemyDestruction.dll][suite]'
       name: EnemyDestruction.dll
       fullName: C:/Git-Repos/TowerDefenseExam/TowerDefenseExam/Library/ScriptAssemblies/EnemyDestruction.dll
       resultStatus: 1
-      duration: 0.0351235
+      duration: 0.0192293
       messages: 
       output: 
       stacktrace: 
@@ -518,14 +518,14 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentId: 1008
+      parentId: 1000
       parentUniqueId: '[TowerDefenseExam][suite]'
-    - id: 1012
+    - id: 1004
       uniqueId: EnemyDestruction.dll/[EnemyDestruction][ProjectileLogicTest][suite]
       name: ProjectileLogicTest
       fullName: ProjectileLogicTest
       resultStatus: 1
-      duration: 0.0294641
+      duration: 0.0146378
       messages: 
       output: 
       stacktrace: 
@@ -534,14 +534,14 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentId: 1014
+      parentId: 1006
       parentUniqueId: '[EnemyDestruction][C:/Git-Repos/TowerDefenseExam/TowerDefenseExam/Library/ScriptAssemblies/EnemyDestruction.dll][suite]'
-    - id: 1013
+    - id: 1005
       uniqueId: EnemyDestruction.dll/ProjectileLogicTest/[EnemyDestruction][ProjectileLogicTest.EnemyGetsDestroyedWhenHitByProjectile]
       name: EnemyGetsDestroyedWhenHitByProjectile
       fullName: ProjectileLogicTest.EnemyGetsDestroyedWhenHitByProjectile
       resultStatus: 1
-      duration: 0.0256867
+      duration: 0.0112954
       messages: 
       output: 
       stacktrace: 
@@ -551,9 +551,9 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentId: 1012
+      parentId: 1004
       parentUniqueId: EnemyDestruction.dll/[EnemyDestruction][ProjectileLogicTest][suite]
-    m_ResultText: EnemyGetsDestroyedWhenHitByProjectile (0,026s)
+    m_ResultText: EnemyGetsDestroyedWhenHitByProjectile (0,011s)
     m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
@@ -582,7 +582,7 @@ MonoBehaviour:
       FailedHidden: 0
       NotRunHidden: 0
       m_SearchString: 
-      selectedCategoryMask: 0
+      selectedCategoryMask: -1
       availableCategories:
       - Uncategorized
     m_SelectedOption: 0
@@ -594,7 +594,7 @@ MonoBehaviour:
       name: TowerDefenseExam
       fullName: TowerDefenseExam
       resultStatus: 1
-      duration: 0.0784322
+      duration: 0.0695234
       messages: 
       output: 
       stacktrace: 
@@ -605,12 +605,12 @@ MonoBehaviour:
       categories: []
       parentId: 
       parentUniqueId: 
-    - id: 1006
+    - id: 1019
       uniqueId: '[EnemySpawn][C:/Git-Repos/TowerDefenseExam/TowerDefenseExam/Library/ScriptAssemblies/EnemySpawn.dll][suite]'
       name: EnemySpawn.dll
       fullName: C:/Git-Repos/TowerDefenseExam/TowerDefenseExam/Library/ScriptAssemblies/EnemySpawn.dll
       resultStatus: 1
-      duration: 0.0455923
+      duration: 0.0462493
       messages: 
       output: 
       stacktrace: 
@@ -619,14 +619,14 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentId: 1000
+      parentId: 1016
       parentUniqueId: '[TowerDefenseExam][suite]'
-    - id: 1004
+    - id: 1017
       uniqueId: EnemySpawn.dll/[EnemySpawn][EnemySpawnTest+SpawnEnemyTest][suite]
       name: EnemySpawnTest+SpawnEnemyTest
       fullName: EnemySpawnTest+SpawnEnemyTest
       resultStatus: 1
-      duration: 0.044713
+      duration: 0.0434124
       messages: 
       output: 
       stacktrace: 
@@ -635,14 +635,14 @@ MonoBehaviour:
       description: 
       isSuite: 1
       categories: []
-      parentId: 1006
+      parentId: 1019
       parentUniqueId: '[EnemySpawn][C:/Git-Repos/TowerDefenseExam/TowerDefenseExam/Library/ScriptAssemblies/EnemySpawn.dll][suite]'
-    - id: 1005
+    - id: 1018
       uniqueId: EnemySpawn.dll/EnemySpawnTest+SpawnEnemyTest/[EnemySpawn][EnemySpawnTest+SpawnEnemyTest.SpawnEnemy_EnemiesInstantiatedAtCorrectPosition]
       name: SpawnEnemy_EnemiesInstantiatedAtCorrectPosition
       fullName: EnemySpawnTest+SpawnEnemyTest.SpawnEnemy_EnemiesInstantiatedAtCorrectPosition
       resultStatus: 1
-      duration: 0.0413204
+      duration: 0.0318504
       messages: 
       output: 
       stacktrace: 
@@ -652,63 +652,14 @@ MonoBehaviour:
       isSuite: 0
       categories:
       - Uncategorized
-      parentId: 1004
+      parentId: 1017
       parentUniqueId: EnemySpawn.dll/[EnemySpawn][EnemySpawnTest+SpawnEnemyTest][suite]
-    m_ResultText: 'EnemyGetsDestroyedWhenHitByProjectile (0,046s)
-
-      ---
-
-      Unhandled
-      log message: ''[Error] Destroy may not be called from edit mode! Use DestroyImmediate
-      instead.
-
-      Destroying an object in edit mode destroys it permanently.''.
-      Use UnityEngine.TestTools.LogAssert.Expect
-
-      ---
-
-      UnityEngine.Object:Destroy
-      (UnityEngine.Object)
-
-      ProjectileLogic:OnTriggerEnter2D (UnityEngine.Collider2D)
-      (at Assets/Scripts/ProjectileLogic.cs:66)
-
-      ProjectileLogicTest/<EnemyGetsDestroyedWhenHitByProjectile>d__0:MoveNext
-      () (at Assets/Tests/EnemyDestruction/EnemyDestructionTest.cs:28)
-
-      UnityEditor.EditorApplication:Internal_CallUpdateFunctions
-      ()
-
-      ---
-
-      Destroy may not be called from edit mode! Use DestroyImmediate
-      instead.
-
-      Destroying an object in edit mode destroys it permanently.
-
-      Destroy
-      may not be called from edit mode! Use DestroyImmediate instead.
-
-      Destroying
-      an object in edit mode destroys it permanently.'
-    m_ResultStacktrace: 'UnityEngine.Object:Destroy (UnityEngine.Object)
-
-      ProjectileLogic:OnTriggerEnter2D
-      (UnityEngine.Collider2D) (at Assets/Scripts/ProjectileLogic.cs:66)
-
-      ProjectileLogicTest/<EnemyGetsDestroyedWhenHitByProjectile>d__0:MoveNext
-      () (at Assets/Tests/EnemyDestruction/EnemyDestructionTest.cs:28)
-
-      UnityEditor.EditorApplication:Internal_CallUpdateFunctions
-      ()
-
-      
-
-'
+    m_ResultText: SpawnEnemy_EnemiesInstantiatedAtCorrectPosition (0,032s)
+    m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 872fa3ff
-      m_LastClickedID: -6082681
+      m_SelectedIDs: 824e538b
+      m_LastClickedID: -1957474686
       m_ExpandedIDs: 9f39cb838634fec114af99c6df51c9fd2cdcc9fdbfcac55effffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -755,9 +706,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 900
+    x: 901
     y: 577
-    width: 692
+    width: 691
     height: 422
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -775,7 +726,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 692, y: 389}
+  m_TargetSize: {x: 691, y: 389}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -790,8 +741,8 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -346
-    m_HBaseRangeMax: 346
+    m_HBaseRangeMin: -345.5
+    m_HBaseRangeMax: 345.5
     m_VBaseRangeMin: -194.5
     m_VBaseRangeMax: 194.5
     m_HAllowExceedBaseRangeMin: 1
@@ -811,23 +762,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 692
+      width: 691
       height: 401
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 346, y: 200.5}
+    m_Translation: {x: 345.5, y: 200.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -346
+      x: -345.5
       y: -200.5
-      width: 692
+      width: 691
       height: 401
     m_MinimalGUI: 1
   m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 692, y: 422}
+  m_LastWindowPixelSize: {x: 691, y: 422}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -872,21 +823,21 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: f4d2feffa0d3feff30d7feffe6d7feff92d8feff22dcfeff84dffeff5ae0feff34e3feff1ae9fefffaecfeff74effeffe2f1feffe2f5feff8cf8feff30fbfeffa4fdfeff2006ffff8a08ffff700cffff440dffff3e11ffffb813ffff2a16ffff8e18fffffc1affff661dffff2a1effff1a22ffff9024fffffa26ffff7c29ffffcc2dffff2030ffff9c32ffff1435ffffe83effffe43fffff6e41ffff7c42ffff1e45ffff1646ffff7848ffffe64affff6c4dffffe44fffff6655ffff0258ffff6e5affff3c5bffff125cffff045dffffee5dffffbc5effff8a5fffff6a60ffff3861ffff0662ffff7064ffff0867ffff6068ffffd085ffff7c86fffff689ffffbc8cffff688dffffe290ffffba93ffff6694ffffd697ffff7498ffff2099ffff969cffff58a5ffff04a6ffff7ea9ffff28aaffffd4aaffff4eaeffff14dbffffc0dbffff40dfffff16fbffff6e930000dcab0000
+      m_ExpandedIDs: c42bffff0e2cffffd82dffff462effff0a30ffff0c31ffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Main Camera
+        m_OriginalName: Main Camera
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: 31866
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 11}
       m_SearchString: 
@@ -1029,7 +980,7 @@ MonoBehaviour:
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Light Settings
-      index: 2
+      index: 1
       layout: 4
       size: {x: 0, y: 0}
       sizeOverriden: 0
@@ -1224,7 +1175,7 @@ MonoBehaviour:
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: APV Overlay
-      index: 10
+      index: 11
       layout: 4
       size: {x: 0, y: 0}
       sizeOverriden: 0
@@ -1315,7 +1266,7 @@ MonoBehaviour:
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Tilemap Focus
-      index: 1
+      index: 2
       layout: 4
       size: {x: 0, y: 0}
       sizeOverriden: 0
@@ -1328,7 +1279,7 @@ MonoBehaviour:
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Path
-      index: 11
+      index: 10
       layout: 4
       size: {x: 0, y: 0}
       sizeOverriden: 0
@@ -1343,9 +1294,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.3857942, y: -0.12687108, z: -0.052667886}
+    m_Target: {x: 0.74038047, y: -0.18658179, z: 0.041306026}
     speed: 2
-    m_Value: {x: 0.3857942, y: -0.12687108, z: -0.052667886}
+    m_Value: {x: 0.74038047, y: -0.18658179, z: 0.041306026}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1395,9 +1346,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 5.4513283
+    m_Target: 5.8693857
     speed: 2
-    m_Value: 5.4513283
+    m_Value: 5.8693857
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1415,7 +1366,7 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
+  m_LastSceneViewRotation: {x: -0.12806062, y: 0.83260983, z: -0.21598206, w: -0.4936729}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
@@ -1444,7 +1395,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 577
-    width: 899
+    width: 900
     height: 422
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -1467,7 +1418,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Tests/EnemyDestruction
+    - Assets/Tests/Tests
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1475,16 +1426,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Tests/EnemyDestruction
+  - Assets/Tests/Tests
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Git-Repos\TowerDefenseExam\TowerDefenseExam
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 0a820100
-    m_LastClickedID: 98826
-    m_ExpandedIDs: 00000000bc7600005878000000ca9a3b
+    m_SelectedIDs: 92410000
+    m_LastClickedID: 16786
+    m_ExpandedIDs: 00000000ba400000f640000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1512,7 +1463,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000bc760000
+    m_ExpandedIDs: 00000000ba40000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1556,7 +1507,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 14}
+      m_ClientGUIView: {fileID: 2}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -1590,7 +1541,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 577
-    width: 899
+    width: 900
     height: 422
   m_SerializedDataModeController:
     m_DataMode: 0
